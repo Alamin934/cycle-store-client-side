@@ -6,31 +6,32 @@ const MyOrders = () => {
     const { user } = useAuth();
     const email = user.email;
 
-    const [userPlans, setUserPlans] = useState([]);
+    const [userOrders, setUserOrders] = useState([]);
+
     useEffect(() => {
-        fetch(`https://limitless-beyond-03016.herokuapp.com/MyOrders/${email}`)
+        fetch(`http://localhost:5000/orders/${email}`)
             .then(res => res.json())
-            .then(data => setUserPlans(data))
+            .then(data => setUserOrders(data))
     }, [email]);
 
     const handleCancelMyOrders = (id) => {
-        const proceed = window.confirm('Are you sure, You want to Cancel this Plan?');
+        const proceed = window.confirm('Are you sure, You want to Cancel this Order?');
         if (proceed) {
-            fetch(`https://limitless-beyond-03016.herokuapp.com/MyOrders/${id}`, {
+            fetch(`http://localhost:5000/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
                         alert('Cancel Successfully');
-                        const remainingPlans = userPlans.filter(userPlan => userPlan._id !== id);
-                        setUserPlans(remainingPlans);
+                        const remainingOrders = userOrders.filter(userOrder => userOrder._id !== id);
+                        setUserOrders(remainingOrders);
                     }
                 })
         }
     };
 
-    if (userPlans.length === 0) {
+    if (userOrders.length === 0) {
         return <h2 className="text-center pb-5 fw-bold">No Booking Plans Found</h2>
     }
 
@@ -40,20 +41,21 @@ const MyOrders = () => {
                 <Container>
                     <Row className="g-5 d-flex justify-content-center" xs={1} md={2} lg={3}>
                         {
-                            userPlans.map(userPlan => <Col key={userPlan._id}>
+                            userOrders.map(userOrder => <Col key={userOrder._id}>
                                 <Card>
-                                    <CardImg src={userPlan.url} alt="" />
+                                    <CardImg src={userOrder.url} alt="" />
                                     <Card.Body className="rounded-3">
-                                        <Card.Title className="mb-0 fs-4">{userPlan.title}</Card.Title>
-                                        <Card.Text className="my-1"><span className="fw-bold">Location:</span> {userPlan.location}</Card.Text>
-                                        <Card.Text className="my-1"><span className="fw-bold">From:</span> {userPlan.date}</Card.Text>
-                                        <div className="d-flex justify-content-between">
-                                            <Card.Text className="my-1"><span className="fw-bold">Price:</span> ${userPlan.price}</Card.Text>
-                                            <Card.Text className="my-1"><span className="fw-bold">Total:</span> {userPlan.totalPeople} People</Card.Text>
-                                            <Card.Text className="my-1"><span className="fw-bold">Duration:</span> {userPlan.days} Days</Card.Text>
-                                        </div>
-                                        <Card.Text className="my-1"><span className="fw-bold">Status:</span> {userPlan.status}</Card.Text>
-                                        <Button onClick={() => handleCancelMyOrders(userPlan._id)} variant="danger" className="d-block mt-3">Cancel</Button>
+                                        <Card.Title className="mb-0 fs-4">{userOrder.biCycle_name}</Card.Title>
+
+                                        <Card.Text className="my-1"><span className="fw-bold">Phone:</span> {userOrder.phone_number}</Card.Text>
+
+                                        <Card.Text className="my-1"><span className="fw-bold">Address:</span> {userOrder.address}</Card.Text>
+
+                                        <Card.Text className="my-1"><span className="fw-bold">Price:</span> ${userOrder.price}</Card.Text>
+
+                                        <Card.Text className="my-1"><span className="fw-bold">Status:</span> {userOrder.status}</Card.Text>
+
+                                        <Button onClick={() => handleCancelMyOrders(userOrder._id)} variant="info" className="d-block mt-3">Cancel</Button>
                                     </Card.Body>
                                 </Card>
                             </Col>)

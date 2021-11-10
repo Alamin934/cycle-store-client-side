@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
-const useAllPlans = () => {
-    const [plans, setPlans] = useState([]);
+const useAllBiCycles = () => {
+    const [biCycles, setBiCycles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetch('https://limitless-beyond-03016.herokuapp.com/allPlans')
+        fetch('http://localhost:5000/allBiCycles')
             .then(res => res.json())
             .then(data => {
-                setPlans(data);
+                setBiCycles(data);
                 setIsLoading(data);
             })
     }, []);
 
     return {
-        plans,
-        isLoading
+        biCycles,
+        isLoading,
+        setBiCycles
     }
 
 };
 
-export default useAllPlans;
+export default useAllBiCycles;

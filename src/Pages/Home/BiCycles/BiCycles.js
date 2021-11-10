@@ -1,19 +1,19 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import useAllPlans from '../../../hooks/useAllPlans';
+import useAllBiCycles from '../../../hooks/useAllBiCycles';
 import './BiCycles.css';
 
 const BiCycles = () => {
-    const { plans, isLoading } = useAllPlans();
+    const { biCycles, isLoading } = useAllBiCycles();
     const history = useHistory();
-    const handlePlanDetail = (id) => {
-        const url = `/singlePlanDetail/${id}`;
+    const handlebiCycleDetail = (id) => {
+        const url = `/biCycleDetails/${id}`;
         history.push(url);
     }
     if (!isLoading) {
         return <div className="text-center py-5">
-            <Spinner animation="border" variant="danger" />
+            <Spinner animation="border" variant="info" />
         </div>
     }
     return (
@@ -21,12 +21,12 @@ const BiCycles = () => {
         <div>
             <section className="py-5">
                 <Container>
-                    <h1 className="text-center mb-4 fw-bold"><span className="text-info">Our Tour</span> Plans</h1>
+                    <h1 className="text-center mb-4 fw-bold">Our All<span className="text-info"> BiCycles</span></h1>
                     <Row xs={1} md={2} lg={3} className="g-5">
                         {
-                            plans.map(plan => <Col key={plan._id}>
+                            biCycles.map(biCycle => <Col key={biCycle._id}>
                                 <Card className="border-0">
-                                    <Card.Img className="img-fluid rounded-0" src={plan.url} />
+                                    <Card.Img className="img-fluid rounded-0" src={biCycle.url} />
 
                                     <div>
                                         <Card.Body className="px-0">
@@ -34,14 +34,14 @@ const BiCycles = () => {
                                                 <Card.Text className="mb-0">
                                                     <small className="text-muted">Rating</small>
                                                 </Card.Text>
-                                                <h5 className="fw-bold mb-0 text-info">${plan.price}</h5>
+                                                <h5 className="fw-bold mb-0 text-info">${biCycle.price}</h5>
                                             </div>
-                                            <Card.Title className="mt-2">{plan.title.slice(0, 30)}</Card.Title>
+                                            <Card.Title className="mt-2">{biCycle.biCycle_name}</Card.Title>
                                             <Card.Text>
-                                                <small className="text-muted">{plan.description.slice(0, 80)}</small>
+                                                <small className="text-muted">{biCycle.description.slice(0, 80)}</small>
                                             </Card.Text>
                                         </Card.Body>
-                                        <Button onClick={() => handlePlanDetail(plan._id)} variant="outline-info" className="d-block">Book Now</Button>
+                                        <Button onClick={() => handlebiCycleDetail(biCycle._id)} variant="outline-info" className="d-block">Book Now</Button>
                                     </div>
                                 </Card>
                             </Col>)

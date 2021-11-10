@@ -1,29 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Form, Row, Table, Spinner } from 'react-bootstrap';
-import useAllPlans from '../../../hooks/useAllPlans';
+import useAllBiCycles from '../../../hooks/useAllBiCycles';
 
 const ManageAllOrders = () => {
-    const [userPlans, setUserPlans] = useState([]);
-    const { isLoading } = useAllPlans();
-
+    const { isLoading } = useAllBiCycles();
+    const [orders, setOrders] = useState([]);
+    const [status, setStatus] = useState("");
 
     useEffect(() => {
-        fetch('https://limitless-beyond-03016.herokuapp.com/userPlans')
+        fetch('http://localhost:5000/orders')
             .then(res => res.json())
-            .then(data => setUserPlans(data))
+            .then(data => setOrders(data))
     }, []);
-    const handleDeletePlan = (id) => {
-        const proceed = window.confirm('Are you sure, You want to Delete this Plan?');
+
+    const handleStatus = (e) => {
+        setStatus(e.target.value);
+    }
+
+    const handleUpdateStatus = (id) => {
+
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
+            method: "PUT",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ status })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    alert(`Update Status ${status} Successfully`);
+                }
+            })
+    }
+
+    const handleDeleteOrder = (id) => {
+        const proceed = window.confirm('Are you sure, You want to Delete?');
         if (proceed) {
-            fetch(`https://limitless-beyond-03016.herokuapp.com/myPlans/${id}`, {
+            fetch(`http://localhost:5000/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
                         alert('Deleted Successfully');
-                        const remainingPlans = userPlans.filter(userPlan => userPlan._id !== id);
-                        setUserPlans(remainingPlans);
+                        const remainingOrders = orders.filter(order => order._id !== id);
+                        setOrders(remainingOrders);
                     }
                 })
         }
@@ -44,31 +64,28 @@ const ManageAllOrders = () => {
                                 <tr>
                                     <th>User Name</th>
                                     <th>Email Id</th>
-                                    <th>Booking Date</th>
-                                    <th>Plans Title</th>
-                                    <th>Location</th>
+                                    <th>BiCycle Name</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    userPlans.map(userPlan =>
-                                        <tr key={userPlan._id}>
-                                            <td>{userPlan.userName}</td>
-                                            <td>{userPlan.email}</td>
-                                            <td>{userPlan.date}</td>
-                                            <td>{userPlan.title}</td>
-                                            <td>{userPlan.location}</td>
+                                    orders.map(order =>
+                                        <tr key={order._id}>
+                                            <td>{order.userName}</td>
+                                            <td>{order.email}</td>
+                                            <td>{order.biCycle_name}</td>
                                             <td>
-                                                <Form.Select aria-label="Default select example">
-                                                    <option value="pending">{userPlan.status}</option>
-                                                    <option value="Approved">Approved</option>
-                                                    <option value="Complete">Complete</option>
+                                                <Form.Select onChange={handleStatus} aria-label="Default select example">
+                                                    <option value="pending">{order.status}</option>
+                                                    <option value="approved">Approved</option>
+                                                    <option value="done">Done</option>
                                                 </Form.Select>
                                             </td>
                                             <td>
-                                                <button onClick={() => handleDeletePlan(userPlan._id)} className="btn btn-danger">Delete</button>
+                                                <button onClick={() => handleUpdateStatus(order._id)} className="btn btn-warning me-2">Update</button>
+                                                <button onClick={() => handleDeleteOrder(order._id)} className="btn btn-danger">Delete</button>
                                             </td>
                                         </tr>)
                                 }

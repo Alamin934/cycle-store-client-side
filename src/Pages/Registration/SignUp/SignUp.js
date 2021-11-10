@@ -21,7 +21,7 @@ const SignUp = () => {
                 <input type="password" {...register("password", { required: true })} className="form-control form-control-lg mb-3" placeholder="Enter Password" />
 
                 <div className="text-end mt-4">
-                    <input className="btn btn-outline-danger btn-lg" type="submit" value="Buy Now" />
+                    <input className="btn btn-outline-info btn-lg" type="submit" value="Buy Now" />
                 </div>
             </form>
         </div>

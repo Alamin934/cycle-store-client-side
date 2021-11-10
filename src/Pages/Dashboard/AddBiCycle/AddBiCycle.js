@@ -6,10 +6,10 @@ import { useForm } from "react-hook-form";
 const AddBiCycle = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('https://limitless-beyond-03016.herokuapp.com/addTourPlans', data)
+        axios.post('http://localhost:5000/allBiCycles', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('Tour Plans Details Added Successfully');
+                    alert('New BiCycle Information Added Successfully');
                     reset();
                 }
             })
@@ -23,11 +23,11 @@ const AddBiCycle = () => {
                     <Col md={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input {...register("title")} className="form-control form-control-lg mb-3" placeholder="Plans Title" />
+                            <input {...register("biCycle_name")} className="form-control form-control-lg mb-3" placeholder="BiCycle Name" />
 
                             <input type="number" {...register("price")} className="form-control form-control-lg mb-3" placeholder="Price" />
 
-                            <input {...register("location")} className="form-control form-control-lg mb-3" placeholder="Location" />
+                            <input {...register("rating")} className="form-control form-control-lg mb-3" placeholder="Rating: Out of 5" />
 
                             <textarea rows="4" {...register("description")} className="form-control form-control-lg mb-3" placeholder="Description"></textarea>
 

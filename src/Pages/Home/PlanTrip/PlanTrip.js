@@ -7,7 +7,7 @@ const PlanTrip = () => {
             <section className="py-5">
                 <Container>
                     <div className="text-center mb-4">
-                        <h1 className="fw-bold"><span className="text-danger">Plan Your</span> Trip Easly</h1>
+                        <h1 className="fw-bold"><span className="text-info">Plan Your</span> Trip Easly</h1>
                         <p className="text-muted">Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
                     </div>
                     <Row xs={1} md={2} lg={3} className="g-4">

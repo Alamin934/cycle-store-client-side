@@ -3,9 +3,9 @@ import './App.css';
 import AuthProvider from './Components/Context/AuthProvider';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
-import AllCycles from './Pages/Shop/AllCycles/AllCycles';
+import AllBiCycles from './Pages/Shop/AllBiCycles/AllBiCycles';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import CycleDetails from './Pages/Shop/CycleDetails/CycleDetails';
+import BiCycleDetails from './Pages/Shop/BiCycleDetails/BiCycleDetails';
 import Signin from './Pages/Registration/Signin/Signin';
 import SignUp from './Pages/Registration/SignUp/SignUp';
 import Dashboard from './Pages/Dashboard/DashBoard/Dashboard';
@@ -25,10 +25,10 @@ function App() {
             <Home></Home>
           </Route>
           <Route path="/allCycles">
-            <AllCycles />
+            <AllBiCycles />
           </Route>
-          <PrivateRoute path="/cycleDetails/:id">
-            <CycleDetails />
+          <PrivateRoute path="/biCycleDetails/:id">
+            <BiCycleDetails />
           </PrivateRoute>
           <PrivateRoute path="/myOrders">
             <MyOrders />
