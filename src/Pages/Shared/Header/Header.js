@@ -31,9 +31,7 @@ const Header = () => {
                                 </span>
                                 :
                                 <div className="d-lg-flex d-block">
-                                    <Nav.Link as={NavLink} to="/addPlans">Add Cycles</Nav.Link>
-                                    <Nav.Link as={NavLink} to="/myPlans">My Orders</Nav.Link>
-                                    <Nav.Link as={NavLink} to="/manageAllPlans">Manage All Orders</Nav.Link>
+                                    <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
                                     <button className=" py-2 btn btn-dark" onClick={handleLogOut}>Log Out</button>
                                 </div>
                             }

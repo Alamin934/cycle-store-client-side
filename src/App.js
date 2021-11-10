@@ -1,9 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Components/Context/AuthProvider';
-import AddPlans from './Pages/Admin/AddPlans/AddPlans';
-import ManageAllPlans from './Pages/Admin/ManageAllPlans/ManageAllPlans';
-import MyPlans from './Pages/Admin/MyPlans/MyPlans';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import AllCycles from './Pages/Shop/AllCycles/AllCycles';
@@ -11,6 +8,10 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import CycleDetails from './Pages/Shop/CycleDetails/CycleDetails';
 import Signin from './Pages/Registration/Signin/Signin';
 import SignUp from './Pages/Registration/SignUp/SignUp';
+import Dashboard from './Pages/Dashboard/DashBoard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
+import AddBiCycle from './Pages/Dashboard/AddBiCycle/AddBiCycle';
 
 function App() {
   return (
@@ -29,14 +30,17 @@ function App() {
           <PrivateRoute path="/cycleDetails/:id">
             <CycleDetails />
           </PrivateRoute>
-          <PrivateRoute path="/myPlans">
-            <MyPlans />
+          <PrivateRoute path="/myOrders">
+            <MyOrders />
           </PrivateRoute>
-          <PrivateRoute path="/manageAllPlans">
-            <ManageAllPlans />
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
           </PrivateRoute>
-          <PrivateRoute path="/addPlans">
-            <AddPlans></AddPlans>
+          <PrivateRoute path="/manageAllOrders">
+            <ManageAllOrders />
+          </PrivateRoute>
+          <PrivateRoute path="/addBiCycle">
+            <AddBiCycle />
           </PrivateRoute>
           <Route path="/signin">
             <Signin />

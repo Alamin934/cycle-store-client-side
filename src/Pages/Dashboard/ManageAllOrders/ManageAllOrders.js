@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Form, Row, Table } from 'react-bootstrap';
+import { Col, Container, Form, Row, Table, Spinner } from 'react-bootstrap';
+import useAllPlans from '../../../hooks/useAllPlans';
 
-const ManageAllPlans = () => {
+const ManageAllOrders = () => {
     const [userPlans, setUserPlans] = useState([]);
+    const { isLoading } = useAllPlans();
+
 
     useEffect(() => {
         fetch('https://limitless-beyond-03016.herokuapp.com/userPlans')
@@ -25,8 +28,13 @@ const ManageAllPlans = () => {
                 })
         }
     };
+    if (!isLoading) {
+        return <div className="text-center py-5">
+            <Spinner animation="border" variant="info" />
+        </div>
+    }
     return (
-        <div className="py-5">
+        <div>
             <Container>
                 <Row>
                     <Col>
@@ -75,4 +83,4 @@ const ManageAllPlans = () => {
     );
 };
 
-export default ManageAllPlans;
+export default ManageAllOrders;

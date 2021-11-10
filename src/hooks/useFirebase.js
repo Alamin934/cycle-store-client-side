@@ -15,9 +15,16 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false))
     };
 
-    const logOut = () => {
+    const logOut = (history) => {
         setIsLoading(true);
         return signOut(auth)
+            .then(() => {
+                history.push('/');
+                setUser({});
+            })
+            .catch(error => {
+                setError(error.message);
+            })
             .finally(() => setIsLoading(false))
     }
 
