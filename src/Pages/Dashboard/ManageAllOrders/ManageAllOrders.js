@@ -80,6 +80,7 @@ const ManageAllOrders = () => {
                                                 <option value="pending">{order.status}</option>
                                                 <option value="approved">Approved</option>
                                                 <option value="shipped">Shipped</option>
+                                                <option value="cancel">Cancel</option>
                                             </Form.Select>
                                         </td>
                                         <td>
