@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Form, Row, Table, Spinner } from 'react-bootstrap';
+import { Col, Form, Row, Table, Spinner } from 'react-bootstrap';
 import useAllBiCycles from '../../../hooks/useAllBiCycles';
 
 const ManageAllOrders = () => {
@@ -55,47 +55,45 @@ const ManageAllOrders = () => {
     }
     return (
         <div>
-            <Container>
-                <Row>
-                    <Col>
-                        <h2 className="mb-3">All Booking Plans List</h2>
-                        <Table responsive="xl">
-                            <thead>
-                                <tr>
-                                    <th>User Name</th>
-                                    <th>Email Id</th>
-                                    <th>BiCycle Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    orders.map(order =>
-                                        <tr key={order._id}>
-                                            <td>{order.userName}</td>
-                                            <td>{order.email}</td>
-                                            <td>{order.biCycle_name}</td>
-                                            <td>
-                                                <Form.Select onChange={handleStatus} aria-label="Default select example">
-                                                    <option value="pending">{order.status}</option>
-                                                    <option value="approved">Approved</option>
-                                                    <option value="done">Done</option>
-                                                </Form.Select>
-                                            </td>
-                                            <td>
-                                                <button onClick={() => handleUpdateStatus(order._id)} className="btn btn-warning me-2">Update</button>
-                                                <button onClick={() => handleDeleteOrder(order._id)} className="btn btn-danger">Delete</button>
-                                            </td>
-                                        </tr>)
-                                }
+            <Row className="px-3">
+                <Col>
+                    <h2 className="mb-3">All Booking Plans List</h2>
+                    <Table responsive="xl">
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>Email Id</th>
+                                <th>BiCycle Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders.map(order =>
+                                    <tr key={order._id}>
+                                        <td>{order.userName}</td>
+                                        <td>{order.email}</td>
+                                        <td>{order.biCycle_name}</td>
+                                        <td>
+                                            <Form.Select onChange={handleStatus} aria-label="Default select example">
+                                                <option value="pending">{order.status}</option>
+                                                <option value="approved">Approved</option>
+                                                <option value="done">Done</option>
+                                            </Form.Select>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => handleUpdateStatus(order._id)} className="btn btn-warning me-2">Update</button>
+                                            <button onClick={() => handleDeleteOrder(order._id)} className="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>)
+                            }
 
 
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
-            </Container>
+                        </tbody>
+                    </Table>
+                </Col>
+            </Row>
         </div>
     );
 };

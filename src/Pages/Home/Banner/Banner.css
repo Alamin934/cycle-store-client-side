@@ -1,41 +1,33 @@
-#home-banner{
-    background: url('https://i.ibb.co/GtmbLyg/mainbg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 700px;
-}
-
-
-
-
 
 @media only screen and (max-width: 992px) {
-    #home-banner .display-4{
-        font-size: 40px;
+    #home-banner .display-3{
+        font-size: 34px;
+        line-height: 45px;
+    }
+    #home-banner p{
+        font-size: 14px;
+    }
+    #home-banner button{
+        font-size: 15px;
+        padding: 9px 32px!important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    #home-banner .display-3{
+        font-size: 48px;
         line-height: 60px;
     }
 }
 @media only screen and (max-width: 450px) {
-    #home-banner{
-        height: 500px;
-    }
-    #home-banner .display-4{
-        font-size: 34px;
-    }
-    #home-banner button{
-        font-size: 18px;
-        padding: 10px 28px!important;
+    #home-banner .display-3{
+        font-size: 38px;
+        line-height: 46px;
     }
 }
 @media only screen and (max-width: 350px) {
-    #home-banner .display-4{
+    #home-banner .display-3{
         font-size: 28px;
-        line-height: 46px;
-    }
-    #home-banner button{
-        font-size: 15px;
-        padding: 10px 28px!important;
+        line-height: 38px;
     }
 }
 

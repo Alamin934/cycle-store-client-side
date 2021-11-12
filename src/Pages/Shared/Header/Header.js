@@ -4,7 +4,9 @@ import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
+    const userImg = 'https://i.ibb.co/sQtppYT/user-img.png';
     const { user, logOut, setUser } = useAuth();
+
     let history = useHistory();
     let redirect_uri = '/';
     /* REDIRECT TO HOME PAGE BY LOG OUT */
@@ -36,10 +38,13 @@ const Header = () => {
                                 </div>
                             }
                             {/* User Name */}
-                            <div className="mt-2 ms-3">{user.email && <div>
-                                <img width="45" className="rounded-pill mx-auto d-block" src={user.photoURL} alt="" />
-                                <span className="d-block">{user.displayName}</span>
-                            </div>}</div>
+                            <div className="mt-2 ms-3">
+                                {user?.email && <div>
+                                    {user?.photoURL ? <img width="45" className="rounded-pill mx-auto d-block" src={user?.photoURL} alt="" />
+                                        : <img width="45" className="rounded-pill mx-auto d-block" src={userImg} alt="" />}
+                                    <span className="d-block">{user.displayName}</span>
+                                </div>}
+                            </div>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

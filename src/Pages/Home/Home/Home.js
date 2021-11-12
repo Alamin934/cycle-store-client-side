@@ -2,9 +2,9 @@ import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 import Banner from '../Banner/Banner';
-import PlanTrip from '../PlanTrip/PlanTrip';
 import BiCycles from '../BiCycles/BiCycles';
-import WhoWeAre from '../WhoWeAre/WhoWeAre';
+import ContactUs from '../ContactUs/ContactUs';
+import Review from '../Review/Review';
 
 const Home = () => {
     return (
@@ -12,8 +12,8 @@ const Home = () => {
             <Header />
             <Banner />
             <BiCycles />
-            <WhoWeAre />
-            <PlanTrip />
+            <Review />
+            <ContactUs />
             <Footer />
         </div>
     );

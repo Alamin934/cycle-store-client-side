@@ -3,9 +3,9 @@ import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
-import useAuth from '../../../hooks/useAuth';
-import Header from '../../Shared/Header/Header';
-import Footer from '../../Shared/Footer/Footer';
+import useAuth from '../../hooks/useAuth';
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const BiCycleDetails = () => {
     const { user } = useAuth();
@@ -27,7 +27,7 @@ const BiCycleDetails = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thank you for your Order.');
-                    history.push('/myOrders')
+                    history.push('/dashboard/myOrders')
                 }
             })
 

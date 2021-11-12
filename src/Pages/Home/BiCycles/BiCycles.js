@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import useAllBiCycles from '../../../hooks/useAllBiCycles';
+import ReactStars from 'react-rating-stars-component';
 import './BiCycles.css';
 
 const BiCycles = () => {
@@ -19,20 +20,26 @@ const BiCycles = () => {
     return (
 
         <div>
-            <section className="py-5">
+            <section className="pt-5">
                 <Container>
                     <h1 className="text-center mb-4 fw-bold">Our All<span className="text-info"> BiCycles</span></h1>
                     <Row xs={1} md={2} lg={3} className="g-5">
                         {
-                            biCycles.map(biCycle => <Col key={biCycle._id}>
+                            biCycles.slice(0, 6).map(biCycle => <Col key={biCycle._id}>
                                 <Card className="border-0">
                                     <Card.Img className="img-fluid rounded-0" src={biCycle.url} />
 
                                     <div>
                                         <Card.Body className="px-0">
-                                            <div className="d-flex justify-content-between border-bottom pb-2">
+                                            <div className="d-flex justify-content-between align-items-center border-bottom pb-2">
                                                 <Card.Text className="mb-0">
-                                                    <small className="text-muted">Rating</small>
+                                                    <ReactStars
+                                                        value={4.5}
+                                                        isHalf={true}
+                                                        count={5}
+                                                        size={26}
+                                                        activeColor="#ffd700"
+                                                    ></ReactStars>
                                                 </Card.Text>
                                                 <h5 className="fw-bold mb-0 text-info">${biCycle.price}</h5>
                                             </div>
@@ -41,7 +48,7 @@ const BiCycles = () => {
                                                 <small className="text-muted">{biCycle.description.slice(0, 80)}</small>
                                             </Card.Text>
                                         </Card.Body>
-                                        <Button onClick={() => handlebiCycleDetail(biCycle._id)} variant="outline-info" className="d-block">Book Now</Button>
+                                        <Button onClick={() => handlebiCycleDetail(biCycle._id)} variant="outline-info" className="d-block">Buy Now</Button>
                                     </div>
                                 </Card>
                             </Col>)

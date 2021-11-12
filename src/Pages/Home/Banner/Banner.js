@@ -7,13 +7,16 @@ import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div>
-            <section id="home-banner" className="text-white text-center py-5 d-flex align-items-center">
+            <section id="home-banner" className="bg-light pt-5">
                 <Container>
-                    <Row>
-                        <Col>
-                            <h1 className="fw-bold display-4 mb-3">Enjoy Vacation With <span className="text-info bg-white rounded px-4">Pack & Go</span></h1>
-                            <p>Travel to the any corner of the world, without going around in circles.</p>
-                            <Link to='/allPlans'><Button size="lg" variant="info" className=" px-5 rounded-pill fw-bold">Book A Tour</Button></Link>
+                    <Row className="g-4">
+                        <Col xs={12} md={5}>
+                            <h1 className="fw-bold display-3 mb-3">Largest Bycycle Manufacture</h1>
+                            <p>Check Out our exclusive collection of mountain bikes. City bikes, girls cycles and more</p>
+                            <Link to='/allBiCycles'><Button size="lg" variant="info" className=" px-5 rounded-pill fw-bold text-white">Shop Now</Button></Link>
+                        </Col>
+                        <Col xs={12} md={7}>
+                            <img src="https://i.ibb.co/GQzjqzR/bike.png" alt="" className="w-100" />
                         </Col>
                     </Row>
                 </Container>

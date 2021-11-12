@@ -3,15 +3,12 @@ import './App.css';
 import AuthProvider from './Components/Context/AuthProvider';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
-import AllBiCycles from './Pages/Shop/AllBiCycles/AllBiCycles';
-import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import BiCycleDetails from './Pages/Shop/BiCycleDetails/BiCycleDetails';
+import AllBiCycles from './Pages/AllBiCycles/AllBiCycles';
+import BiCycleDetails from './Pages/BiCycleDetails/BiCycleDetails';
 import Signin from './Pages/Registration/Signin/Signin';
 import SignUp from './Pages/Registration/SignUp/SignUp';
 import Dashboard from './Pages/Dashboard/DashBoard/Dashboard';
-import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
-import ManageAllOrders from './Pages/Dashboard/ManageAllOrders/ManageAllOrders';
-import AddBiCycle from './Pages/Dashboard/AddBiCycle/AddBiCycle';
+import PrivateRoute from './Pages/Registration/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -30,17 +27,8 @@ function App() {
           <PrivateRoute path="/biCycleDetails/:id">
             <BiCycleDetails />
           </PrivateRoute>
-          <PrivateRoute path="/myOrders">
-            <MyOrders />
-          </PrivateRoute>
           <PrivateRoute path="/dashboard">
             <Dashboard />
-          </PrivateRoute>
-          <PrivateRoute path="/manageAllOrders">
-            <ManageAllOrders />
-          </PrivateRoute>
-          <PrivateRoute path="/addBiCycle">
-            <AddBiCycle />
           </PrivateRoute>
           <Route path="/signin">
             <Signin />

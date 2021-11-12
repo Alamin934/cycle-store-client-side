@@ -1,17 +1,20 @@
+import axios from 'axios';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import useAuth from '../../../hooks/useAuth';
 
 const AddReview = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { user } = useAuth();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
-        // axios.post('https://limitless-beyond-03016.herokuapp.com/addTourPlans', data)
-        //     .then(res => {
-        //         if (res.data.insertedId) {
-        //             alert('Tour Plans Details Added Successfully');
-        //             reset();
-        //         }
-        //     })
+        axios.post('http://localhost:5000/review', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('Thank you for your feedback, Review added successfully');
+                    reset();
+                }
+            })
 
     }
     return (
@@ -22,13 +25,17 @@ const AddReview = () => {
                     <Col xs={12} md={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input {...register("name")} className="form-control form-control-lg mb-3" defaultValue="User Name" />
+                            {user.displayName && <input {...register("name", { required: true })} className="form-control form-control-lg mb-3" defaultValue={user.displayName} />}
 
-                            <input {...register("email")} className="form-control form-control-lg mb-3" defaultValue="User Email" />
+                            {user.email && <input {...register("email", { required: true })} className="form-control form-control-lg mb-3" defaultValue={user.email} />}
 
-                            <input type="number" {...register("rating")} className="form-control form-control-lg mb-3" placeholder="Ratign: Out of 5" />
+                            {user.photoURL && <input {...register("photoUrl", { required: true })} className="form-control form-control-lg mb-3" defaultValue={user.photoURL} />}
 
-                            <textarea rows="4" {...register("description")} className="form-control form-control-lg mb-3" placeholder="Description"></textarea>
+                            <input {...register("rating", { required: true, min: 1, max: 5, })} className="form-control form-control-lg mb-3" placeholder="Rating: Out of 5" />
+                            <p>{errors.rating && "Rating is required & Max rating is 5"}</p>
+
+                            <textarea rows="4" {...register("description", { required: true })} className="form-control form-control-lg mb-3" placeholder="Description"></textarea>
+                            <p>{errors.description && "Description is required"}</p>
 
                             <div className="text-end mt-4">
                                 <input className="btn btn-info btn-lg text-white" type="submit" value="Submit" />

@@ -5,13 +5,18 @@ import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        // axios.post('https://limitless-beyond-03016.herokuapp.com/addTourPlans', data)
-        //     .then(res => {
-        //         if (res.data.insertedId) {
-        //             alert('Tour Plans Details Added Successfully');
-        //             reset();
-        //         }
-        //     })
+        fetch('http://localhost:5000/users/admin', {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.modifiedCount) {
+                    alert('Admin Added Successfully');
+                    reset();
+                }
+            })
 
     }
     return (
@@ -22,7 +27,7 @@ const MakeAdmin = () => {
                     <Col md={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input type="email" {...register("admin")} className="form-control form-control-lg mb-3" placeholder="Enter Email Address" />
+                            <input type="email" {...register("email")} className="form-control form-control-lg mb-3" placeholder="Enter Email Address" />
                             <input className="btn btn-info text-white" type="submit" value="Make Admin" />
                         </form>
                     </Col>

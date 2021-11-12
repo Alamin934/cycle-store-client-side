@@ -1,30 +1,25 @@
 import React from 'react';
-import { Button, Card, Col, Container, InputGroup, Row } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Container, InputGroup, Row, Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Signin.css';
 
 const Signin = () => {
-    const { signInUsingGoogle, setError } = useAuth();
+    const { signInUsingGoogle, userSignIn, isLoading, user, error } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/';
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
-
+        userSignIn(data.email, data.password, history, location)
+        reset();
     };
 
     const handleGoogleLogIn = () => {
-        signInUsingGoogle()
-            .then(result => {
-                history.push(redirect_uri);
-            }).catch(error => {
-                setError(error.message);
-            })
+        signInUsingGoogle(history, location)
     }
 
     return (
@@ -45,6 +40,13 @@ const Signin = () => {
 
                                         <div className="mt-4">
                                             <input className="btn btn-info text-white btn-lg w-100" type="submit" value="SignIn" />
+                                        </div>
+                                        <div className="text-center mt-4 fs-5">
+                                            <NavLink to="/signup" className="text-dark" style={{ textDecoration: 'none' }}>New User? Please Create an Account</NavLink>
+                                        </div>
+                                        <div className="text-center">{isLoading && <Spinner animation="border" variant="info" />}
+                                            {user?.email && <Alert variant="success">User Login Successfully</Alert>}
+                                            {error && <Alert variant="error">{error}</Alert>}
                                         </div>
                                     </form>
                                 </div>

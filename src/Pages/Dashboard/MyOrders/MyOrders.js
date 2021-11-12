@@ -32,14 +32,15 @@ const MyOrders = () => {
     };
 
     if (userOrders.length === 0) {
-        return <h2 className="text-center pb-5 fw-bold">No Booking Plans Found</h2>
+        return <h2 className="text-center pb-5 fw-bold">No Orders Found</h2>
     }
 
     return (
         <>
             <div>
                 <Container>
-                    <Row className="g-5 d-flex justify-content-center" xs={1} md={2} lg={3}>
+                    <h2 className="fw-bold">My <span className="text-info">Orders</span></h2>
+                    <Row className="g-5 d-flex justify-content-center mt-3" xs={1} md={2} lg={3}>
                         {
                             userOrders.map(userOrder => <Col key={userOrder._id}>
                                 <Card>

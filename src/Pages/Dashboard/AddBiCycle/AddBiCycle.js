@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const AddBiCycle = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         axios.post('http://localhost:5000/allBiCycles', data)
             .then(res => {
@@ -23,15 +23,20 @@ const AddBiCycle = () => {
                     <Col md={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input {...register("biCycle_name")} className="form-control form-control-lg mb-3" placeholder="BiCycle Name" />
+                            <input {...register("biCycle_name", { required: true })} className="form-control form-control-lg mb-3" placeholder="BiCycle Name" />
+                            <p>{errors.biCycle_name && "BiCycle Name is required"}</p>
 
-                            <input type="number" {...register("price")} className="form-control form-control-lg mb-3" placeholder="Price" />
+                            <input type="number" {...register("price", { required: true })} className="form-control form-control-lg mb-3" placeholder="Price" />
+                            <p>{errors.price && "Price is required"}</p>
 
-                            <input {...register("rating")} className="form-control form-control-lg mb-3" placeholder="Rating: Out of 5" />
+                            <input {...register("rating", { required: true, min: 0, max: 5 })} className="form-control form-control-lg mb-3" placeholder="Rating: Out of 5" />
+                            <p>{errors.rating && "Rating is required & Max rating is 5"}</p>
 
-                            <textarea rows="4" {...register("description")} className="form-control form-control-lg mb-3" placeholder="Description"></textarea>
+                            <textarea rows="4" {...register("description", { required: true })} className="form-control form-control-lg mb-3" placeholder="Description"></textarea>
+                            <p>{errors.description && "Description is required"}</p>
 
-                            <input {...register("url")} className="form-control form-control-lg mb-3" placeholder="Insert Image URL" />
+                            <input {...register("url", { required: true })} className="form-control form-control-lg mb-3" placeholder="Insert Image URL" />
+                            <p>{errors.url && "Photo is required"}</p>
 
                             <div className="text-end mt-4">
                                 <input className="btn btn-info btn-lg text-white" type="submit" value="Add New BiCycle" />

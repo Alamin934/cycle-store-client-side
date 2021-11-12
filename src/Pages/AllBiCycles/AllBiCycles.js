@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import useAllBiCycles from '../../../hooks/useAllBiCycles';
-import Header from '../../Shared/Header/Header';
-import Footer from '../../Shared/Footer/Footer';
+import useAllBiCycles from '../../hooks/useAllBiCycles';
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
+import ReactStars from 'react-rating-stars-component';
 
 const AllBiCycles = () => {
     const { biCycles, isLoading } = useAllBiCycles();
@@ -31,18 +32,24 @@ const AllBiCycles = () => {
 
                                     <div>
                                         <Card.Body className="px-0">
-                                            <div className="d-flex justify-content-between border-bottom pb-2">
+                                            <div className="d-flex justify-content-between align-items-center border-bottom pb-2">
                                                 <Card.Text className="mb-0">
-                                                    <small className="text-muted">Rating</small>
+                                                    <ReactStars
+                                                        value={4.5}
+                                                        isHalf={true}
+                                                        count={5}
+                                                        size={26}
+                                                        activeColor="#ffd700"
+                                                    />
                                                 </Card.Text>
                                                 <h5 className="fw-bold mb-0 text-info">${biCycle.price}</h5>
                                             </div>
-                                            <Card.Title Name className="mt-2">{biCycle.biCycle_name}</Card.Title>
+                                            <Card.Title className="mt-2">{biCycle.biCycle_name}</Card.Title>
                                             <Card.Text>
                                                 <small className="text-muted">{biCycle.description.slice(0, 80)}</small>
                                             </Card.Text>
                                         </Card.Body>
-                                        <Button onClick={() => handlebiCycleDetail(biCycle._id)} variant="outline-info" className="d-block">Book Now</Button>
+                                        <Button onClick={() => handlebiCycleDetail(biCycle._id)} variant="outline-info" className="d-block">Buy Now</Button>
                                     </div>
                                 </Card>
                             </Col>)
