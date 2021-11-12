@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const AddBiCycle = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/allBiCycles', data)
+        axios.post('https://rocky-badlands-58533.herokuapp.com/allBiCycles', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('New BiCycle Information Added Successfully');

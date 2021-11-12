@@ -8,7 +8,7 @@ const Banner = () => {
     return (
         <div>
             <section id="home-banner" className="bg-light pt-5">
-                <Container>
+                <Container className="pt-5">
                     <Row className="g-4">
                         <Col xs={12} md={5}>
                             <h1 className="fw-bold display-3 mb-3">Largest Bycycle Manufacture</h1>

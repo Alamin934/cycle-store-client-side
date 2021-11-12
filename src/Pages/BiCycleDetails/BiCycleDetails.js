@@ -15,7 +15,7 @@ const BiCycleDetails = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allBiCycles/${id}`)
+        fetch(`https://rocky-badlands-58533.herokuapp.com/allBiCycles/${id}`)
             .then(res => res.json())
             .then(data => setBiCycle(data))
     }, [id]);
@@ -23,7 +23,7 @@ const BiCycleDetails = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         data.status = "pending";
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://rocky-badlands-58533.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thank you for your Order.');

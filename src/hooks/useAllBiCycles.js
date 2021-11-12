@@ -5,7 +5,7 @@ const useAllBiCycles = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allBiCycles')
+        fetch('https://rocky-badlands-58533.herokuapp.com/allBiCycles')
             .then(res => res.json())
             .then(data => {
                 setBiCycles(data);

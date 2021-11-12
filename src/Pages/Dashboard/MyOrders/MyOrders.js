@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [userOrders, setUserOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${email}`)
+        fetch(`https://rocky-badlands-58533.herokuapp.com/orders/${email}`)
             .then(res => res.json())
             .then(data => setUserOrders(data))
     }, [email]);
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleCancelMyOrders = (id) => {
         const proceed = window.confirm('Are you sure, You want to Cancel this Order?');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://rocky-badlands-58533.herokuapp.com/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
