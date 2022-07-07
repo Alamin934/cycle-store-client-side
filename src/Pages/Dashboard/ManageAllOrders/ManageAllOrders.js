@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
     const [status, setStatus] = useState("");
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://rocky-badlands-58533.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, []);
@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
 
     const handleUpdateStatus = (id) => {
 
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://rocky-badlands-58533.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ status })
@@ -35,7 +35,7 @@ const ManageAllOrders = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm('Are you sure, You want to Delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://rocky-badlands-58533.herokuapp.com/orders/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
