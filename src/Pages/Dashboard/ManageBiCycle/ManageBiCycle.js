@@ -8,7 +8,7 @@ const ManageBiCycle = () => {
     const handleDeleteBiCycle = (id) => {
         const proceed = window.confirm('Are you sure, You want to Delete your Product?');
         if (proceed) {
-            fetch(`https://rocky-badlands-58533.herokuapp.com/allBiCycles/${id}`, {
+            fetch(`http://localhost:5000/allBiCycles/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

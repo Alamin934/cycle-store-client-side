@@ -26,7 +26,7 @@ const BiCycles = () => {
                     <Row xs={1} md={2} lg={3} className="g-5">
                         {
                             biCycles.slice(0, 6).map(biCycle => <Col key={biCycle._id}>
-                                <Card className="border-0">
+                                <Card className="border-0 p-4 shadow">
                                     <Card.Img className="img-fluid rounded-0" src={biCycle.url} />
 
                                     <div>

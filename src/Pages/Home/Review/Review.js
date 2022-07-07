@@ -8,7 +8,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://rocky-badlands-58533.herokuapp.com/review')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -18,18 +18,18 @@ const Review = () => {
             <section className="pt-5">
                 <h1 className="fw-bold text-center mb-4"><span className="text-info">Our Clients</span> Says</h1>
                 <Container className="py-5" id="carousel_banner">
-                    <Row className="justify-content-center align-items-center review-row">
+                    <Row className="justify-content-center align-items-center">
                         <Col xs={12} md={8}>
                             <Carousel>
                                 {
                                     reviews.map(review =>
                                         <Carousel.Item key={review._id}>
                                             <Row className="g-4">
-                                                <Col xs={12} md={3} className="text-center">
+                                                <Col xs={6} md={6} className="d-flex justify-content-end">
                                                     {review?.photoUrl ? <img className="userImg rounded-pill" src={review?.photoUrl} alt="" />
                                                         : <img className="userImg" src={userImg} alt="" />}
                                                 </Col>
-                                                <Col xs={12} md={9}>
+                                                <Col xs={6} md={6}>
                                                     <Carousel.Caption>
                                                         <ReactStars
                                                             value={parseFloat(review.rating)}

@@ -3,9 +3,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 
 const MakeAdmin = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('https://rocky-badlands-58533.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -14,7 +14,7 @@ const MakeAdmin = () => {
             .then(result => {
                 if (result.modifiedCount) {
                     alert('Admin Added Successfully');
-                    reset();
+                    // reset();
                 }
             })
 

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const AddBiCycle = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('https://rocky-badlands-58533.herokuapp.com/allBiCycles', data)
+        axios.post('http://localhost:5000/allBiCycles', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('New BiCycle Information Added Successfully');
@@ -18,7 +18,7 @@ const AddBiCycle = () => {
     return (
         <div>
             <Container>
-                <h1 className="fw-bold mb-4">Add New <span className="text-info">Tour Plans</span></h1>
+                <h1 className="fw-bold mb-4">Add New <span className="text-info">BiCycle</span></h1>
                 <Row className="d-flex">
                     <Col md={8}>
                         <form onSubmit={handleSubmit(onSubmit)}>

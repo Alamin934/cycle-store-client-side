@@ -1,0 +1,98 @@
+[
+    {
+        "_id": "62c66c5e7dcf49202bead014",
+        "biCycle_name": "SL 1 Disc Road Bike",
+        "price": "700",
+        "rating": "4.5",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/5Gc9cV2/bike1.png"
+    },
+    {
+        "_id": "62c66cf47dcf49202bead015",
+        "biCycle_name": "RC SL EVO AXS Bike",
+        "price": "480",
+        "rating": "4.6",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/tHqy90K/bike2.png"
+    },
+    {
+        "_id": "62c66d157dcf49202bead016",
+        "biCycle_name": "SL 6 Disc Road Bike",
+        "price": "450",
+        "rating": "4.1",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/RjPmrNp/bike3.png"
+    },
+    {
+        "_id": "62c66d407dcf49202bead017",
+        "biCycle_name": "GC EVO AXS Bike 2020",
+        "price": "480",
+        "rating": "4.1",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/Y0RKZHL/bike4.png"
+    },
+    {
+        "_id": "62c66d597dcf49202bead018",
+        "biCycle_name": "GC EVO AXS Bike 2022",
+        "price": "800",
+        "rating": "4.1",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/SBtqdv5/bike5.png"
+    },
+    {
+        "_id": "62c66d907dcf49202bead019",
+        "biCycle_name": "DV LL DVO AXIS Bike",
+        "price": "600",
+        "rating": "4.7",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/pZfvkzg/bike6.png"
+    },
+    {
+        "_id": "62c66dc37dcf49202bead01a",
+        "biCycle_name": "UlTegra Di2 Road Bike",
+        "price": "7500",
+        "rating": "4.7",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/Fm56hD0/bike7.png"
+    },
+    {
+        "_id": "62c66dec7dcf49202bead01b",
+        "biCycle_name": "LTD Disc Road Bike",
+        "price": "670",
+        "rating": "4.4",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/gFWNS1d/bike8.png"
+    },
+    {
+        "_id": "62c66e127dcf49202bead01c",
+        "biCycle_name": "105 Disc Road Bike",
+        "price": "960",
+        "rating": "4.4",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/JzGGxJn/bike9.png"
+    },
+    {
+        "_id": "62c66e3f7dcf49202bead01e",
+        "biCycle_name": "CF 1 Disc Road Bike 2022",
+        "price": "920",
+        "rating": "4.4",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/bHBnFWf/bike10.png"
+    },
+    {
+        "_id": "62c66ec57dcf49202bead01f",
+        "biCycle_name": "CF 1 Disc Road Bike 2021",
+        "price": "1200",
+        "rating": "5",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/kMM3z4J/bike11.png"
+    },
+    {
+        "_id": "62c66f447dcf49202bead021",
+        "biCycle_name": "RC SL EVO AXS Bike 2022",
+        "price": "1150",
+        "rating": "4.8",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "url": "https://i.ibb.co/djWzX9n/bike12.png"
+    }
+]
